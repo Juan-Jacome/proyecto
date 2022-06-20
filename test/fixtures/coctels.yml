@@ -3,7 +3,9 @@
 one:
   nombre_coctel: MyString
   gramos_alcohol: 9.99
+  precio: 9.99
 
 two:
   nombre_coctel: MyString
   gramos_alcohol: 9.99
+  precio: 9.99

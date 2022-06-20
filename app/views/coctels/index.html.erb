@@ -7,6 +7,7 @@
     <tr>
       <th>Nombre coctel</th>
       <th>Gramos alcohol</th>
+      <th>Precio</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= coctel.nombre_coctel %></td>
         <td><%= coctel.gramos_alcohol %></td>
+        <td><%= coctel.precio %></td>
         <td><%= link_to 'Show', coctel %></td>
         <td><%= link_to 'Edit', edit_coctel_path(coctel) %></td>
         <td><%= link_to 'Destroy', coctel, method: :delete, data: { confirm: 'Are you sure?' } %></td>

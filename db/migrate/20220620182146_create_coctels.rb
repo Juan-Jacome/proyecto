@@ -3,6 +3,7 @@ class CreateCoctels < ActiveRecord::Migration[6.1]
     create_table :coctels do |t|
       t.string :nombre_coctel
       t.decimal :gramos_alcohol
+      t.decimal :precio
 
       t.timestamps
     end

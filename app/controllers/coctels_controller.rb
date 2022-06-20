@@ -65,6 +65,6 @@ class CoctelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def coctel_params
-      params.require(:coctel).permit(:nombre_coctel, :gramos_alcohol)
+      params.require(:coctel).permit(:nombre_coctel, :gramos_alcohol, :precio)
     end
 end

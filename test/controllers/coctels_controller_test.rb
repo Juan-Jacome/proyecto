@@ -17,7 +17,7 @@ class CoctelsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create coctel" do
     assert_difference('Coctel.count') do
-      post coctels_url, params: { coctel: { gramos_alcohol: @coctel.gramos_alcohol, nombre_coctel: @coctel.nombre_coctel } }
+      post coctels_url, params: { coctel: { gramos_alcohol: @coctel.gramos_alcohol, nombre_coctel: @coctel.nombre_coctel, precio: @coctel.precio } }
     end
 
     assert_redirected_to coctel_url(Coctel.last)
@@ -34,7 +34,7 @@ class CoctelsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update coctel" do
-    patch coctel_url(@coctel), params: { coctel: { gramos_alcohol: @coctel.gramos_alcohol, nombre_coctel: @coctel.nombre_coctel } }
+    patch coctel_url(@coctel), params: { coctel: { gramos_alcohol: @coctel.gramos_alcohol, nombre_coctel: @coctel.nombre_coctel, precio: @coctel.precio } }
     assert_redirected_to coctel_url(@coctel)
   end
 

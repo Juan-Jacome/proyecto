@@ -16,6 +16,7 @@ class CoctelsTest < ApplicationSystemTestCase
 
     fill_in "Gramos alcohol", with: @coctel.gramos_alcohol
     fill_in "Nombre coctel", with: @coctel.nombre_coctel
+    fill_in "Precio", with: @coctel.precio
     click_on "Create Coctel"
 
     assert_text "Coctel was successfully created"
@@ -28,6 +29,7 @@ class CoctelsTest < ApplicationSystemTestCase
 
     fill_in "Gramos alcohol", with: @coctel.gramos_alcohol
     fill_in "Nombre coctel", with: @coctel.nombre_coctel
+    fill_in "Precio", with: @coctel.precio
     click_on "Update Coctel"
 
     assert_text "Coctel was successfully updated"
