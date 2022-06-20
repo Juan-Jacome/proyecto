@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_14_233636) do
+ActiveRecord::Schema.define(version: 2022_06_18_225026) do
+
+  create_table "coctels", force: :cascade do |t|
+    t.string "nombre_coctel"
+    t.decimal "gramos_alcohol"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "liquors", force: :cascade do |t|
+    t.string "nombre_licor"
+    t.string "marca"
+    t.decimal "grados_alcohol"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "userlogs", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,18 +37,6 @@ ActiveRecord::Schema.define(version: 2022_04_14_233636) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_userlogs_on_email", unique: true
     t.index ["reset_password_token"], name: "index_userlogs_on_reset_password_token", unique: true
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "usuarios", force: :cascade do |t|

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :coctels
+  resources :liquors
   resources :usuarios
   devise_for :userlogs
   #get 'home/index'

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre coctel:</strong>
+  <%= @coctel.nombre_coctel %>
+</p>
+
+<p>
+  <strong>Gramos alcohol:</strong>
+  <%= @coctel.gramos_alcohol %>
+</p>
+
+<%= link_to 'Edit', edit_coctel_path(@coctel) %> |
+<%= link_to 'Back', coctels_path %>

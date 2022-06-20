@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_licor: MyString
+  marca: MyString
+  grados_alcohol: 9.99
+
+two:
+  nombre_licor: MyString
+  marca: MyString
+  grados_alcohol: 9.99
