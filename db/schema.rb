@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_20_182146) do
+ActiveRecord::Schema.define(version: 2022_06_20_183034) do
 
   create_table "coctels", force: :cascade do |t|
     t.string "nombre_coctel"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2022_06_20_182146) do
     t.decimal "precio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "liquor_coctels", force: :cascade do |t|
+    t.integer "coctel_id", null: false
+    t.integer "liquor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coctel_id"], name: "index_liquor_coctels_on_coctel_id"
+    t.index ["liquor_id"], name: "index_liquor_coctels_on_liquor_id"
   end
 
   create_table "liquors", force: :cascade do |t|
@@ -50,4 +59,6 @@ ActiveRecord::Schema.define(version: 2022_06_20_182146) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "liquor_coctels", "coctels"
+  add_foreign_key "liquor_coctels", "liquors"
 end

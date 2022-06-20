@@ -13,15 +13,20 @@ class CoctelsController < ApplicationController
   # GET /coctels/new
   def new
     @coctel = Coctel.new
+    @liquors = Liquor.all
   end
 
   # GET /coctels/1/edit
   def edit
+    @liquors = Liquor.all
   end
 
   # POST /coctels or /coctels.json
   def create
     @coctel = Coctel.new(coctel_params)
+    @liquors = Liquor.all
+    @coctel.save_liquors
+    
 
     respond_to do |format|
       if @coctel.save
@@ -36,6 +41,7 @@ class CoctelsController < ApplicationController
 
   # PATCH/PUT /coctels/1 or /coctels/1.json
   def update
+    @coctel.save_liquors
     respond_to do |format|
       if @coctel.update(coctel_params)
         format.html { redirect_to coctel_url(@coctel), notice: "Coctel was successfully updated." }
@@ -65,6 +71,14 @@ class CoctelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def coctel_params
-      params.require(:coctel).permit(:nombre_coctel, :gramos_alcohol, :precio)
+      params.require(:coctel).permit(:nombre_coctel, :gramos_alcohol, :precio, :liquor_principal)
     end
+
+    def save_liquors
+      liquors_array = liquor_principal.split(",")
+      liquors_array.each do |liquor_id|
+          LiquorCoctel.find_or_create_by(coctel: self, liquor_id: liquor_id)
+      end
+  end
+
 end

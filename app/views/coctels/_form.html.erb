@@ -26,6 +26,18 @@
     <%= form.text_field :precio %>
   </div>
 
+  <div class="field">
+    <%= form.label :liquor_principal %>
+    <div class="row">
+     <% @liquors.each do |liquor| %>
+      <label for="col-6 col-sm-3">
+       <%= form.check_box :liquor_principal, {multiple:true}, liquor.id, nil  %>
+       <%= liquor.nombre_licor %>
+       </label>
+     <% end %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
