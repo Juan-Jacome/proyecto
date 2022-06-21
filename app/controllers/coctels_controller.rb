@@ -63,6 +63,8 @@ class CoctelsController < ApplicationController
     end
   end
 
+  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_coctel
@@ -71,14 +73,8 @@ class CoctelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def coctel_params
-      params.require(:coctel).permit(:nombre_coctel, :gramos_alcohol, :precio, :liquor_principal)
+      params.require(:coctel).permit(:nombre_coctel, :gramos_alcohol, :precio, liquor_principal: [])
     end
 
-    def save_liquors
-      liquors_array = liquor_principal.split(",")
-      liquors_array.each do |liquor_id|
-          LiquorCoctel.find_or_create_by(coctel: self, liquor_id: liquor_id)
-      end
-  end
 
 end

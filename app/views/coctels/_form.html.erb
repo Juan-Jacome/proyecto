@@ -31,7 +31,7 @@
     <div class="row">
      <% @liquors.each do |liquor| %>
       <label for="col-6 col-sm-3">
-       <%= form.check_box :liquor_principal, {multiple:true}, liquor.id, nil  %>
+       <%= form.check_box :liquor_principal, {multiple: true}, liquor.id, nil  %>
        <%= liquor.nombre_licor %>
        </label>
      <% end %>
