@@ -12,39 +12,47 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :nombre_drinker %>
+    <%= form.label :nombre_del_drinker %>
     <%= form.text_field :nombre_drinker %>
   </div>
 
   <div class="field">
-    <%= form.label :estatura_cm %>
+    <%= form.label :estatura_en_cm %>
     <%= form.text_field :estatura_cm %>
   </div>
 
   <div class="field">
-    <%= form.label :peso_kg %>
+    <%= form.label :peso_en_kg %>
     <%= form.text_field :peso_kg %>
   </div>
 
   <div class="field">
     <%= form.label :genero %>
-    <%= form.text_field :genero %>
+    <%= form.select :presupuesto, options_for_select(["Masculino", "Femenino"]) %>
   </div>
 
   <div class="field">
-    <%= form.label :horas_estadia %>
+    <%= form.label :horas_de_estadia %>
     <%= form.number_field :horas_estadia %>
   </div>
 
   <div class="field">
-    <%= form.label :perfil %>
-    <%= form.text_field :perfil %>
+    <%= form.label :selecciona_tu_perfil %>
+    <%= form.label :"Conductor: quiero beber lo suficiente para volver a salvo a casa"  %>
+    <%= form.label :"Moderado: quiero beber lo suficiente para no tener resaca por la mañana" %>
+    <%= form.label :"Alma de la fiesta: quiero beber hasta el agua de los floreros" %>
+    <%= form.select :presupuesto, options_for_select(["Conductor", "Moderado",  "Alma de la fiesta"]) %>
   </div>
 
   <div class="field">
-    <%= form.label :presupuesto %>
-    <%= form.text_field :presupuesto %>
+    <%= form.label :presupuesto_para_la_noche_en_dolares %>
+    <%= form.select :presupuesto, options_for_select(["0-20", "21-40", "41-60"]) %>
   </div>
+
+  <div class="field">
+    <%= form.number_field :userlog_id, id: :formulario_userlog_id, value: current_userlog.id, type: :hidden %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>

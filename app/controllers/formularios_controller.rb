@@ -65,6 +65,6 @@ class FormulariosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def formulario_params
-      params.require(:formulario).permit(:nombre_drinker, :estatura_cm, :peso_kg, :genero, :horas_estadia, :perfil, :presupuesto)
+      params.require(:formulario).permit(:nombre_drinker, :estatura_cm, :peso_kg, :genero, :horas_estadia, :perfil, :presupuesto, :userlog_id)
     end
 end

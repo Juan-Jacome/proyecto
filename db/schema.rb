@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_22_174717) do
+ActiveRecord::Schema.define(version: 2022_06_22_185659) do
 
   create_table "coctels", force: :cascade do |t|
     t.string "nombre_coctel"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2022_06_22_174717) do
     t.decimal "presupuesto"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "userlog_id"
+    t.index ["userlog_id"], name: "index_formularios_on_userlog_id"
   end
 
   create_table "liquor_coctels", force: :cascade do |t|
