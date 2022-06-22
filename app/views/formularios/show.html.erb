@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre drinker:</strong>
+  <%= @formulario.nombre_drinker %>
+</p>
+
+<p>
+  <strong>Estatura cm:</strong>
+  <%= @formulario.estatura_cm %>
+</p>
+
+<p>
+  <strong>Peso kg:</strong>
+  <%= @formulario.peso_kg %>
+</p>
+
+<p>
+  <strong>Genero:</strong>
+  <%= @formulario.genero %>
+</p>
+
+<p>
+  <strong>Horas estadia:</strong>
+  <%= @formulario.horas_estadia %>
+</p>
+
+<p>
+  <strong>Perfil:</strong>
+  <%= @formulario.perfil %>
+</p>
+
+<p>
+  <strong>Presupuesto:</strong>
+  <%= @formulario.presupuesto %>
+</p>
+
+<%= link_to 'Edit', edit_formulario_path(@formulario) %> |
+<%= link_to 'Back', formularios_path %>

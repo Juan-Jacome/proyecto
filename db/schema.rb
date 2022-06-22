@@ -10,12 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_20_183034) do
+ActiveRecord::Schema.define(version: 2022_06_22_174717) do
 
   create_table "coctels", force: :cascade do |t|
     t.string "nombre_coctel"
     t.decimal "gramos_alcohol"
     t.decimal "precio"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "formularios", force: :cascade do |t|
+    t.string "nombre_drinker"
+    t.decimal "estatura_cm"
+    t.decimal "peso_kg"
+    t.string "genero"
+    t.integer "horas_estadia"
+    t.string "perfil"
+    t.decimal "presupuesto"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,52 @@
+<%= form_with(model: formulario) do |form| %>
+  <% if formulario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(formulario.errors.count, "error") %> prohibited this formulario from being saved:</h2>
+
+      <ul>
+        <% formulario.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre_drinker %>
+    <%= form.text_field :nombre_drinker %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estatura_cm %>
+    <%= form.text_field :estatura_cm %>
+  </div>
+
+  <div class="field">
+    <%= form.label :peso_kg %>
+    <%= form.text_field :peso_kg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genero %>
+    <%= form.text_field :genero %>
+  </div>
+
+  <div class="field">
+    <%= form.label :horas_estadia %>
+    <%= form.number_field :horas_estadia %>
+  </div>
+
+  <div class="field">
+    <%= form.label :perfil %>
+    <%= form.text_field :perfil %>
+  </div>
+
+  <div class="field">
+    <%= form.label :presupuesto %>
+    <%= form.text_field :presupuesto %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
