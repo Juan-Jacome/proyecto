@@ -18,6 +18,7 @@
 
   <tbody>
     <% @formularios.each do |formulario| %>
+      <% if formulario.userlog == current_userlog %>
       <tr>
         <td><%= formulario.nombre_drinker %></td>
         <td><%= formulario.estatura_cm %></td>
@@ -30,6 +31,7 @@
         <td><%= link_to 'Edit', edit_formulario_path(formulario) %></td>
         <td><%= link_to 'Destroy', formulario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

@@ -1,4 +1,5 @@
 class CoctelsController < ApplicationController
+  before_action :authenticate_userlog!
   before_action :set_coctel, only: %i[ show edit update destroy ]
 
   # GET /coctels or /coctels.json

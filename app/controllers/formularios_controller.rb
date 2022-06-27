@@ -1,5 +1,7 @@
 class FormulariosController < ApplicationController
+  before_action :authenticate_userlog!
   before_action :set_formulario, only: %i[ show edit update destroy ]
+  before_action :correct_userlog, only: [:edit, :update, :destroy]
 
   # GET /formularios or /formularios.json
   def index
@@ -12,7 +14,8 @@ class FormulariosController < ApplicationController
 
   # GET /formularios/new
   def new
-    @formulario = Formulario.new
+    #@formulario = Formulario.new
+    @formulario = current_userlog.formularios.build
   end
 
   # GET /formularios/1/edit
@@ -21,7 +24,8 @@ class FormulariosController < ApplicationController
 
   # POST /formularios or /formularios.json
   def create
-    @formulario = Formulario.new(formulario_params)
+    #@formulario = Formulario.new(formulario_params)
+    @formulario = current_userlog.formularios.build(formulario_params)
 
     respond_to do |format|
       if @formulario.save
@@ -55,6 +59,11 @@ class FormulariosController < ApplicationController
       format.html { redirect_to formularios_url, notice: "Formulario was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def correct_userlog
+    @formulario = current_userlog.formularios.find_by(id: params[:id])
+    redirect_to formularios_path, notice: "No estas autorzado a editar este formulario" if @formulario.nil?
   end
 
   private
