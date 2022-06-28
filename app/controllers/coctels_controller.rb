@@ -42,7 +42,7 @@ class CoctelsController < ApplicationController
 
   # PATCH/PUT /coctels/1 or /coctels/1.json
   def update
-    @coctel.save_liquors
+    
     respond_to do |format|
       if @coctel.update(coctel_params)
         format.html { redirect_to coctel_url(@coctel), notice: "Coctel was successfully updated." }
@@ -52,6 +52,7 @@ class CoctelsController < ApplicationController
         format.json { render json: @coctel.errors, status: :unprocessable_entity }
       end
     end
+    @coctel.save_liquors
   end
 
   # DELETE /coctels/1 or /coctels/1.json

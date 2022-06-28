@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :genero %>
-    <%= form.select :presupuesto, options_for_select(["Masculino", "Femenino"]) %>
+    <%= form.select :genero, options_for_select(["Masculino", "Femenino"]) %>
   </div>
 
   <div class="field">
@@ -41,16 +41,30 @@
     <%= form.label :"Conductor: quiero beber lo suficiente para volver a salvo a casa"  %>
     <%= form.label :"Moderado: quiero beber lo suficiente para no tener resaca por la mañana" %>
     <%= form.label :"Alma de la fiesta: quiero beber hasta el agua de los floreros" %>
-    <%= form.select :presupuesto, options_for_select(["Conductor", "Moderado",  "Alma de la fiesta"]) %>
+    <%= form.select :perfil, options_for_select(["Conductor", "Moderado",  "Alma de la fiesta"]) %>
   </div>
 
   <div class="field">
-    <%= form.label :presupuesto_para_la_noche_en_dolares %>
-    <%= form.select :presupuesto, options_for_select(["0-20", "21-40", "41-60"]) %>
+    <%= form.label :presupuesto_maximo_para_la_noche_en_dolares %>
+    <%= form.select :presupuesto, options_for_select(["20", "50", "100"]) %>
   </div>
 
   <div class="field">
     <%= form.number_field :userlog_id, id: :formulario_userlog_id, value: current_userlog.id, type: :hidden %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :selecciona_tus_licores_favoritos %>
+    <div class="row">
+     <% @liquors.each do |liquor| %>
+      <label for="col-6 col-sm-3">
+       <%= form.check_box :liquor_favorito, {multiple: true}, liquor.id, nil  %>
+       <%= liquor.nombre_licor %>
+       </label>
+     <% end %>
+    </div>
   </div>
 
 

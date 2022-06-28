@@ -16,16 +16,20 @@ class FormulariosController < ApplicationController
   def new
     #@formulario = Formulario.new
     @formulario = current_userlog.formularios.build
+    @liquors = Liquor.all
   end
 
   # GET /formularios/1/edit
   def edit
+    @liquors = Liquor.all
   end
 
   # POST /formularios or /formularios.json
   def create
     #@formulario = Formulario.new(formulario_params)
     @formulario = current_userlog.formularios.build(formulario_params)
+    @liquors = Liquor.all
+    @formulario.save_liquorsfavs
 
     respond_to do |format|
       if @formulario.save
@@ -49,6 +53,7 @@ class FormulariosController < ApplicationController
         format.json { render json: @formulario.errors, status: :unprocessable_entity }
       end
     end
+    @formulario.save_liquorsfavs
   end
 
   # DELETE /formularios/1 or /formularios/1.json
@@ -74,6 +79,6 @@ class FormulariosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def formulario_params
-      params.require(:formulario).permit(:nombre_drinker, :estatura_cm, :peso_kg, :genero, :horas_estadia, :perfil, :presupuesto, :userlog_id)
+      params.require(:formulario).permit(:nombre_drinker, :estatura_cm, :peso_kg, :genero, :horas_estadia, :perfil, :presupuesto, :userlog_id, liquor_favorito: [])
     end
 end
