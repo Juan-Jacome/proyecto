@@ -10,6 +10,25 @@ class FormulariosController < ApplicationController
 
   # GET /formularios/1 or /formularios/1.json
   def show
+
+    @alcohol_tomado = 5 + 51
+
+    if @formulario.perfil == "Conductor"
+      @perfil_tomador = 0.08
+    elsif @formulario.perfil == "Moderado"
+      @perfil_tomador = 0.2
+    else
+      @perfil_tomador = 0.4
+    end
+
+
+
+    if @formulario.genero == "Masculino"
+      @wid = @alcohol_tomado/(((@formulario.peso_kg*1000) * 0.68) - (@formulario.horas_estadia * 0.015)) * 100
+    else
+      @wid = @alcohol_tomado/(((@formulario.peso_kg*1000) * 0.55) - (@formulario.horas_estadia * 0.015)) * 100
+    end
+    
   end
 
   # GET /formularios/new
@@ -70,6 +89,10 @@ class FormulariosController < ApplicationController
     @formulario = current_userlog.formularios.find_by(id: params[:id])
     redirect_to formularios_path, notice: "No estas autorzado a editar este formulario" if @formulario.nil?
   end
+
+  
+
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
