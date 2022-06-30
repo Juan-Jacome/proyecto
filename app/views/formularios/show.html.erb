@@ -40,5 +40,43 @@
   <%= @wid %>
 </p>
 
+
+<p>
+  <strong>licores_favoritos:</strong>
+  <% @formulario.liquors.each do |liquor| %>
+ 
+    <div class="card" style="width: 18rem;">
+    <h5 class="card-title"><%= liquor.nombre_licor %></h5>
+    <p class="card-text">
+    
+    <strong>Marca:</strong>
+    <%= liquor.marca %>
+  </p>
+  
+  <p>
+    <strong>Grados de alcohol:</strong>
+    <%= liquor.grados_alcohol %>
+  </p>
+
+  <p>
+    <span class="btn btn-primary" >
+    <%= link_to 'Ver cocteles', liquor, class:"text-white" %>
+    </span>
+
+  </p>
+      
+    </div>
+    <br>
+  <% end %>
+  
+</p>
+
+
+
+
+
+
+
+
 <%= link_to 'Edit', edit_formulario_path(@formulario) %> |
 <%= link_to 'Back', formularios_path %>

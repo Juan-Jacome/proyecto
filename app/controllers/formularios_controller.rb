@@ -13,6 +13,7 @@ class FormulariosController < ApplicationController
 
     @alcohol_tomado = 5 + 51
 
+    #Perfiles drinker
     if @formulario.perfil == "Conductor"
       @perfil_tomador = 0.08
     elsif @formulario.perfil == "Moderado"
@@ -22,12 +23,15 @@ class FormulariosController < ApplicationController
     end
 
 
-
+    #Formula Widemark
     if @formulario.genero == "Masculino"
-      @wid = @alcohol_tomado/(((@formulario.peso_kg*1000) * 0.68) - (@formulario.horas_estadia * 0.015)) * 100
+      @wid = ((@alcohol_tomado/((@formulario.peso_kg*1000) * 0.68)) * 100) - (@formulario.horas_estadia * 0.015)
     else
-      @wid = @alcohol_tomado/(((@formulario.peso_kg*1000) * 0.55) - (@formulario.horas_estadia * 0.015)) * 100
+      @wid = ((@alcohol_tomado/((@formulario.peso_kg*1000) * 0.55)) * 100) - (@formulario.horas_estadia * 0.015)
     end
+
+    @mostrar = @formulario.liquor_favorito
+
     
   end
 

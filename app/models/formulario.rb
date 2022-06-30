@@ -15,11 +15,8 @@ class Formulario < ApplicationRecord
         end
       end
 
-      def widemark
-        #.select('SUM(fformularios.estatura_cm + formularios.peso_kg) AS w')[0].w
-        @wid = @formulario.peso_kg + @formulario.estatura_cm
-      end
-    
+      
+
 
 end
 
