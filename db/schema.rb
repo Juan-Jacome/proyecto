@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_28_203802) do
+ActiveRecord::Schema.define(version: 2022_07_01_194202) do
+
+  create_table "coctel_formularios", force: :cascade do |t|
+    t.integer "coctel_id", null: false
+    t.integer "formulario_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coctel_id"], name: "index_coctel_formularios_on_coctel_id"
+    t.index ["formulario_id"], name: "index_coctel_formularios_on_formulario_id"
+  end
 
   create_table "coctels", force: :cascade do |t|
     t.string "nombre_coctel"
@@ -60,6 +69,15 @@ ActiveRecord::Schema.define(version: 2022_06_28_203802) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "recomendacions", force: :cascade do |t|
+    t.integer "liquor_coctel_id", null: false
+    t.integer "formulario_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["formulario_id"], name: "index_recomendacions_on_formulario_id"
+    t.index ["liquor_coctel_id"], name: "index_recomendacions_on_liquor_coctel_id"
+  end
+
   create_table "userlogs", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -82,8 +100,12 @@ ActiveRecord::Schema.define(version: 2022_06_28_203802) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "coctel_formularios", "coctels"
+  add_foreign_key "coctel_formularios", "formularios"
   add_foreign_key "liquor_coctels", "coctels"
   add_foreign_key "liquor_coctels", "liquors"
   add_foreign_key "liquor_formularios", "formularios"
   add_foreign_key "liquor_formularios", "liquors"
+  add_foreign_key "recomendacions", "formularios"
+  add_foreign_key "recomendacions", "liquor_coctels"
 end

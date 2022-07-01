@@ -2,6 +2,8 @@ class CoctelsController < ApplicationController
   before_action :authenticate_userlog!
   before_action :set_coctel, only: %i[ show edit update destroy ]
 
+  
+
   # GET /coctels or /coctels.json
   def index
     @coctels = Coctel.all
@@ -9,6 +11,7 @@ class CoctelsController < ApplicationController
 
   # GET /coctels/1 or /coctels/1.json
   def show
+    @menores = Coctel.find_by("precio <= '10'")
   end
 
   # GET /coctels/new
@@ -56,7 +59,8 @@ class CoctelsController < ApplicationController
   end
 
   # DELETE /coctels/1 or /coctels/1.json
-  def destroy
+  def destroy  
+    @coctel.save_liquors
     @coctel.destroy
 
     respond_to do |format|

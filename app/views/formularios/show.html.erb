@@ -35,6 +35,8 @@
   <%= @formulario.presupuesto %>
 </p>
 
+
+
 <p>
   <strong>widemark:</strong>
   <%= @wid %>
@@ -44,10 +46,13 @@
 <p>
   <strong>licores_favoritos:</strong>
   <% @formulario.liquors.each do |liquor| %>
+    
  
     <div class="card" style="width: 18rem;">
     <h5 class="card-title"><%= liquor.nombre_licor %></h5>
     <p class="card-text">
+
+    
     
     <strong>Marca:</strong>
     <%= liquor.marca %>
@@ -57,6 +62,7 @@
     <strong>Grados de alcohol:</strong>
     <%= liquor.grados_alcohol %>
   </p>
+
 
   <p>
     <span class="btn btn-primary" >
@@ -70,6 +76,8 @@
   <% end %>
   
 </p>
+
+
 
 
 

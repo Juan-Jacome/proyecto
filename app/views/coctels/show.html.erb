@@ -11,9 +11,18 @@
 </p>
 
 <p>
+  
+  <strong>widemark:</strong>
+  <%= @menores.nombre_coctel %>
+  
+</p>
+
+<p>
   <strong>Precio:</strong>
   <%= @coctel.precio %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_coctel_path(@coctel) %> |
 <%= link_to 'Back', coctels_path %>

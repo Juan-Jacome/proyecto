@@ -1,6 +1,10 @@
 class Coctel < ApplicationRecord
     has_many :liquor_coctels
     has_many :liquors, through: :liquor_coctels
+
+    has_many :coctel_formularios
+    has_many :formularios, through: :coctel_formularios
+
     attr_accessor :liquor_principal
 
     def save_liquors

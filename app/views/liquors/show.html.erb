@@ -10,6 +10,8 @@
   <%= @liquor.marca %>
 </p>
 
+
+
 <p>
   <strong>Grados alcohol:</strong>
   <%= @liquor.grados_alcohol %>
@@ -18,20 +20,23 @@
     </div>
     </div>
 
+    
+
     <p>
   <strong>Cocteles:</strong>
   <% @liquor.coctels.each do |coctel| %>
+    
  
     <div class="card" style="width: 18rem;">
     <h5 class="card-title"><%= coctel.nombre_coctel %></h5>
     <p class="card-text">
     
-    <strong>Marca:</strong>
+    <strong>Gramos de alcohol:</strong>
     <%= coctel.gramos_alcohol %>
   </p>
   
   <p>
-    <strong>Grados de alcohol:</strong>
+    <strong>Precio:</strong>
     <%= coctel.precio %>
   </p>
 

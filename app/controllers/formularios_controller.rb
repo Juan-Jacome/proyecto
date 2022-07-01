@@ -12,6 +12,7 @@ class FormulariosController < ApplicationController
   def show
 
     @alcohol_tomado = 5 + 51
+    
 
     #Perfiles drinker
     if @formulario.perfil == "Conductor"
@@ -81,6 +82,7 @@ class FormulariosController < ApplicationController
 
   # DELETE /formularios/1 or /formularios/1.json
   def destroy
+    @formulario.save_liquorsfavs
     @formulario.destroy
 
     respond_to do |format|
@@ -93,8 +95,6 @@ class FormulariosController < ApplicationController
     @formulario = current_userlog.formularios.find_by(id: params[:id])
     redirect_to formularios_path, notice: "No estas autorzado a editar este formulario" if @formulario.nil?
   end
-
-  
 
   
 
