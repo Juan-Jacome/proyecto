@@ -14,7 +14,20 @@
               nav-link" %>
           </li>
 
-          <li class="nav-item">
+
+        <li class="nav-item">
+        <%= link_to "Formularios",
+            formularios_path, class:"
+            nav-link" %>
+        </li>
+
+        <li class="nav-item">
+        <%= link_to "Ver todos los cocteles",
+            coctels_path, class:"
+            nav-link" %>
+        </li>
+
+        <li class="nav-item">
           <%= link_to "Cerrar Sesion",
           destroy_userlog_session_path, method: :delete, class:"
               nav-link" %>
@@ -23,12 +36,6 @@
         <li class="nav-item">
         <%= link_to "Editar Perfil",
         edit_userlog_registration_path, class:"
-            nav-link" %>
-        </li>
-
-        <li class="nav-item">
-        <%= link_to "Formularios",
-            formularios_path, class:"
             nav-link" %>
         </li>
 

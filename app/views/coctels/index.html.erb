@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Coctels</h1>
+<%= form_with url: coctels_path, method: :get do |form| %>
+
+  <%= form.number_field :min_price, placeholder: t('.min_price'),
+  onChange: 'this.form.requestSumbit()' %>
+  <%= form.number_field :max_price, placeholder: t('.max_price'),
+  onChange: 'this.form.requestSumbit()' %>
+  <% end %>
 
 <table>
   <thead>
@@ -27,5 +34,6 @@
 </table>
 
 <br>
+
 
 <%= link_to 'New Coctel', new_coctel_path %>

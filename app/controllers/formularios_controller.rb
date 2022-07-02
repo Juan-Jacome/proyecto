@@ -14,31 +14,42 @@ class FormulariosController < ApplicationController
     @observar = Formulario.joins(:liquors).find_by(liquors: {marca: 'Absolut'})
     @observar = @observar.peso_kg
 
-    @juan = Liquor.joins(:formularios).find_by(formularios: {perfil: 'Conductor'})
-    @juan = @juan.grados_alcohol
 
     @prueba = Formulario.joins(:liquors).where("liquors.grados_alcohol > ?", 30).pluck(:nombre_drinker)
 
-    @alcohol_tomado = 5 + 51
+    @alcohol_tomado = 14
+
+    #@nivel_alcohol: 0.08 0.2 0.4
+    @nivel_alcohol = 0.08
 
   
     
 
     #Perfiles drinker
     if @formulario.perfil == "Conductor"
-      @perfil_tomador = 0.08
+      @perfil_tomador = Liquor.find_by("grados_alcohol <= 29 ")
+      @perfil_tomador = @perfil_tomador.nombre_licor
+      @nivel_alcohol = 0.8
     elsif @formulario.perfil == "Moderado"
-      @perfil_tomador = 0.2
+      @perfil_tomador = Liquor.find_by("grados_alcohol < 39 AND grados_alcohol > 30")
+      @perfil_tomador = @perfil_tomador.nombre_licor
+      @nivel_alcohol = 0.4
     else
-      @perfil_tomador = 0.4
+      @perfil_tomador = Liquor.find_by("grados_alcohol > 39")
+      @perfil_tomador = @perfil_tomador.nombre_licor
+      @nivel_alcohol = 0.2
     end
 
 
     #Formula Widemark
     if @formulario.genero == "Masculino"
-      @wid = ((@alcohol_tomado/((@formulario.peso_kg*1000) * 0.68)) * 100) - (@formulario.horas_estadia * 0.015)
+      #@wid = ((@alcohol_tomado/((@formulario.peso_kg*1000) * 0.68)) * 100) - (@formulario.horas_estadia * 0.015)
+      @wid = (((@formulario.peso_kg)*0.68*0.1)/(@nivel_alcohol)) + (@formulario.horas_estadia * 0.015)
+      @wid = @wid.to_i
     else
-      @wid = ((@alcohol_tomado/((@formulario.peso_kg*1000) * 0.55)) * 100) - (@formulario.horas_estadia * 0.015)
+      #@wid = ((@alcohol_tomado/((@formulario.peso_kg*1000) * 0.55)) * 100) - (@formulario.horas_estadia * 0.015)
+      @wid = (((@formulario.peso_kg)*0.55*0.1)/@nivel_alcohol) + (@formulario.horas_estadia * 0.015)
+      @wid = @wid.to_i
     end
 
     @mostrar = @formulario.liquor_favorito

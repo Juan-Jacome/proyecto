@@ -37,12 +37,6 @@
 </p>
 
 
-
-<p>
-  <strong>juan:</strong>
-  <%= @juan %>
-</p>
-
 <p>
   
   <strong>Exclusivamente:</strong>
@@ -52,9 +46,21 @@
 
 <p>
   
+  <strong>Puedes beber maximo <%= @wid %> cocteles </strong>
+  
+</p>
+
+<p>
+  
+  <strong>Si quieres ser el <%= @formulario.perfil %> prueba cocteles con:</strong>
+  <%= @perfil_tomador %>
+  
+</p>
+
+<p>
+  
   <strong>Exclusivamente:</strong>
   <%= @prueba.each do |prueba| %>
-  
   <% end %>
   
 </p>

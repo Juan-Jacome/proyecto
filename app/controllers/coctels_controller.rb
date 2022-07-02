@@ -7,6 +7,11 @@ class CoctelsController < ApplicationController
   # GET /coctels or /coctels.json
   def index
     @coctels = Coctel.all
+
+    if params[:min_price].present?
+      @coctels = @coctels.where("precio >= ?", params[:min_price])
+    end
+    
   end
 
   # GET /coctels/1 or /coctels/1.json
