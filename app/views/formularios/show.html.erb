@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre drinker:</strong>
-  <%= @formulario.nombre_drinker %>
-</p>
+<h1>
+  <strong>
+  Hola <%= @formulario.nombre_drinker %>
+  </strong>
+</h1>
 
 <p>
   <strong>Estatura cm:</strong>
@@ -38,13 +39,29 @@
 
 
 <p>
-  <strong>widemark:</strong>
-  <%= @wid %>
+  <strong>juan:</strong>
+  <%= @juan %>
+</p>
+
+<p>
+  
+  <strong>Exclusivamente:</strong>
+  <%= @observar %>
+  
+</p>
+
+<p>
+  
+  <strong>Exclusivamente:</strong>
+  <%= @prueba.each do |prueba| %>
+  
+  <% end %>
+  
 </p>
 
 
 <p>
-  <strong>licores_favoritos:</strong>
+  <h4> <strong>Información de tus licores favoritos:</strong> </h4>
   <% @formulario.liquors.each do |liquor| %>
     
  
@@ -66,7 +83,7 @@
 
   <p>
     <span class="btn btn-primary" >
-    <%= link_to 'Ver cocteles', liquor, class:"text-white" %>
+    <%= link_to 'Ver cocteles disponibles', liquor, class:"text-white" %>
     </span>
 
   </p>
@@ -86,5 +103,5 @@
 
 
 
-<%= link_to 'Edit', edit_formulario_path(@formulario) %> |
-<%= link_to 'Back', formularios_path %>
+<%= link_to 'Editar Formulario', edit_formulario_path(@formulario) %> |
+<%= link_to 'Regresar', formularios_path %>

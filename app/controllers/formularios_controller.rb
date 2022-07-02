@@ -11,7 +11,17 @@ class FormulariosController < ApplicationController
   # GET /formularios/1 or /formularios/1.json
   def show
 
+    @observar = Formulario.joins(:liquors).find_by(liquors: {marca: 'Absolut'})
+    @observar = @observar.peso_kg
+
+    @juan = Liquor.joins(:formularios).find_by(formularios: {perfil: 'Conductor'})
+    @juan = @juan.grados_alcohol
+
+    @prueba = Formulario.joins(:liquors).where("liquors.grados_alcohol > ?", 30).pluck(:nombre_drinker)
+
     @alcohol_tomado = 5 + 51
+
+  
     
 
     #Perfiles drinker
