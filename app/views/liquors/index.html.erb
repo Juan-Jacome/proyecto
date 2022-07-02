@@ -1,3 +1,4 @@
+<% if current_userlog.id == 4 %>
 <p id="notice"><%= notice %></p>
 
 <h1>Liquors</h1>
@@ -29,3 +30,4 @@
 <br>
 
 <%= link_to 'New Liquor', new_liquor_path %>
+<% end %>

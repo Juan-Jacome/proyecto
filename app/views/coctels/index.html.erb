@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Coctels</h1>
+<h1>Cocteles</h1>
+<!--
+
 <%= form_with url: coctels_path, method: :get do |form| %>
 
   <%= form.number_field :min_price, placeholder: t('.min_price'),
@@ -8,6 +10,8 @@
   <%= form.number_field :max_price, placeholder: t('.max_price'),
   onChange: 'this.form.requestSumbit()' %>
   <% end %>
+
+  -->
 
 <table>
   <thead>
@@ -25,9 +29,12 @@
         <td><%= coctel.nombre_coctel %></td>
         <td><%= coctel.gramos_alcohol %></td>
         <td><%= coctel.precio %></td>
-        <td><%= link_to 'Show', coctel %></td>
+        <td><%= link_to 'Ver coctel', coctel %></td>
+        
+        <% if current_userlog.id == 4 %>
         <td><%= link_to 'Edit', edit_coctel_path(coctel) %></td>
         <td><%= link_to 'Destroy', coctel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -35,5 +42,6 @@
 
 <br>
 
-
+<% if current_userlog.id == 4 %>
 <%= link_to 'New Coctel', new_coctel_path %>
+<% end %>

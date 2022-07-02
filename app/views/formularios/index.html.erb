@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Formularios</h1>
+<h1>Mis Formularios</h1>
 
 <table>
   <thead>
@@ -27,9 +27,9 @@
         <td><%= formulario.horas_estadia %></td>
         <td><%= formulario.perfil %></td>
         <td><%= formulario.presupuesto %></td>
-        <td><%= link_to 'Show', formulario %></td>
-        <td><%= link_to 'Edit', edit_formulario_path(formulario) %></td>
-        <td><%= link_to 'Destroy', formulario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver recomendaciones', formulario %></td>
+        <td><%= link_to 'Editar formulario', edit_formulario_path(formulario) %></td>
+        <td><%= link_to 'Eliminar formulario', formulario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <% end %>
     <% end %>
