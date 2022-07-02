@@ -17,6 +17,7 @@
 </p>
 
 
-
-<%= link_to 'Edit', edit_coctel_path(@coctel) %> |
-<%= link_to 'Back', coctels_path %>
+<% if current_userlog.id == 4 %>
+<%= link_to 'Edit', edit_coctel_path(@coctel) %> 
+<% end %>
+<%= link_to 'Regresar', coctels_path %>

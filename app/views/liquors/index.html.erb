@@ -1,4 +1,4 @@
-<% if current_userlog.id == 4 %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Liquors</h1>
@@ -19,9 +19,11 @@
         <td><%= liquor.nombre_licor %></td>
         <td><%= liquor.marca %></td>
         <td><%= liquor.grados_alcohol %></td>
-        <td><%= link_to 'Show', liquor %></td>
+        <td><%= link_to 'Ver Cocteles con este licor', liquor %></td>
+        <% if current_userlog.id == 4 %>
         <td><%= link_to 'Edit', edit_liquor_path(liquor) %></td>
         <td><%= link_to 'Destroy', liquor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -29,5 +31,7 @@
 
 <br>
 
+<% if current_userlog.id == 4 %>
 <%= link_to 'New Liquor', new_liquor_path %>
-<% end %>
+<% end%>
+
