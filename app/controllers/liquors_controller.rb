@@ -9,6 +9,7 @@ class LiquorsController < ApplicationController
 
   # GET /liquors/1 or /liquors/1.json
   def show
+
   end
 
   # GET /liquors/new

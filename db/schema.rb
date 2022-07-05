@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_01_194202) do
+ActiveRecord::Schema.define(version: 2022_07_02_214510) do
 
   create_table "coctel_formularios", force: :cascade do |t|
     t.integer "coctel_id", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_07_01_194202) do
     t.decimal "precio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "liquor"
   end
 
   create_table "formularios", force: :cascade do |t|

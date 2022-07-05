@@ -11,8 +11,8 @@ class FormulariosController < ApplicationController
   # GET /formularios/1 or /formularios/1.json
   def show
 
-    @observar = Formulario.joins(:liquors).find_by(liquors: {marca: 'Absolut'})
-    @observar = @observar.peso_kg
+   # @observar = Formulario.joins(:liquors).find_by(liquors: {marca: 'Absolut'})
+    #@observar = @observar.peso_kg
 
 
     @prueba = Formulario.joins(:liquors).where("liquors.grados_alcohol > ?", 30).pluck(:nombre_drinker)
@@ -30,15 +30,22 @@ class FormulariosController < ApplicationController
       @perfil_tomador = Liquor.find_by("grados_alcohol <= 29 ")
       @perfil_tomador = @perfil_tomador.nombre_licor
       @nivel_alcohol = 0.8
+      
     elsif @formulario.perfil == "Moderado"
       @perfil_tomador = Liquor.find_by("grados_alcohol < 39 AND grados_alcohol > 30")
       @perfil_tomador = @perfil_tomador.nombre_licor
       @nivel_alcohol = 0.4
+      
     else
       @perfil_tomador = Liquor.find_by("grados_alcohol > 39")
       @perfil_tomador = @perfil_tomador.nombre_licor
       @nivel_alcohol = 0.2
+      
     end
+
+    #@promedi= Coctel.where(liquor: 'Cerveza').average(:gramos_alcohol).to_f
+
+   
 
 
     #Formula Widemark
@@ -55,6 +62,7 @@ class FormulariosController < ApplicationController
     @mostrar = @formulario.liquor_favorito
 
     
+
   end
 
   # GET /formularios/new
