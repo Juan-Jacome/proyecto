@@ -1,5 +1,9 @@
 # README
 
+Desarrollado por: Juan Andres Jacome
+
+Link del core deployado: https://shielded-cliffs-90992.herokuapp.com/
+
 1. Título del proyecto: Drinking Wingman
 
 2. Descripción del proyecto:
@@ -21,6 +25,11 @@
     * Ver todos los cocteles: En esta pestaña se muestra la lista de cocteles registrados por el usuario administrador, esta lista consta del nombre del coctel, los gramos de alcohol y el precio de cada uno de los diferentes cocteles.
 
     * Ver todos los licores: En esta pestaña se muestra la lista de licores registrados por el usuario administrador, esta lista consta del nombre del licor, la marca y  los grados de alcohol de cada uno de los diferentes licores.
+
+    * Admin:
+        Usuario: admin@live.com
+        Contraseña: 123456
+        Con estas credenciales se pueden acceder a las funcionalidades del administrador, en las pestañas de ver todos licores y ver todos cocteles, se podra crear nuevos registros, modificarlos y de ser necesario eliminarlos.
 
 4. Información adicional:
 
